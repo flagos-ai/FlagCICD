@@ -22,7 +22,7 @@ Generalized from FlagGems' `setup-flaggems` action for org-wide reuse across any
 
 ```yaml
 steps:
-  - uses: flagos-ai/FlagOps/actions/setup-project@main
+  - uses: flagos-ai/FlagCICD/actions/setup-project@main
     with:
       backend: nvidia-cuda133
 ```
@@ -31,7 +31,7 @@ steps:
 
 ```yaml
 steps:
-  - uses: flagos-ai/FlagOps/actions/setup-project@main
+  - uses: flagos-ai/FlagCICD/actions/setup-project@main
     with:
       backend: nvidia-cuda133
       vllm-version: '0.21.0'
@@ -41,7 +41,7 @@ steps:
 ### Non-nvidia backend with vllm (override prefix)
 
 ```yaml
-  - uses: flagos-ai/FlagOps/actions/setup-project@main
+  - uses: flagos-ai/FlagCICD/actions/setup-project@main
     with:
       backend: custom-backend
       vllm-version: '0.21.0'
@@ -51,7 +51,7 @@ steps:
 ### Custom setup script and layer-1 pattern
 
 ```yaml
-  - uses: flagos-ai/FlagOps/actions/setup-project@main
+  - uses: flagos-ai/FlagCICD/actions/setup-project@main
     with:
       backend: ascend-cann900
       setup-script: ./scripts/bootstrap.sh
@@ -76,7 +76,7 @@ steps:
     gpu_check_script: tools/gpu_check.sh
 
 # After (org-wide)
-- uses: flagos-ai/FlagOps/actions/setup-project@main
+- uses: flagos-ai/FlagCICD/actions/setup-project@main
   with:
     backend: ${{ matrix.backend }}
     vllm-version: '0.21.0'        # was hardcoded in the action

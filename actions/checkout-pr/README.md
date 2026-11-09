@@ -21,9 +21,9 @@ steps:
   - uses: actions/checkout@v4
     continue-on-error: true
 
-  - uses: flagos-ai/FlagOps/actions/checkout-retry@main
+  - uses: flagos-ai/FlagCICD/actions/checkout-retry@main
 
-  - uses: flagos-ai/FlagOps/actions/checkout-pr@main
+  - uses: flagos-ai/FlagCICD/actions/checkout-pr@main
     with:
       pull: ${{ github.event.issue.number }}
       github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -34,7 +34,7 @@ steps:
 By default, `gh` is downloaded from the internal FlagOS CDN. To use GitHub's official releases or your own mirror:
 
 ```yaml
-  - uses: flagos-ai/FlagOps/actions/checkout-pr@main
+  - uses: flagos-ai/FlagCICD/actions/checkout-pr@main
     with:
       pull: ${{ github.event.issue.number }}
       github-token: ${{ secrets.GITHUB_TOKEN }}

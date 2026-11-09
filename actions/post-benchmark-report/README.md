@@ -45,7 +45,7 @@ steps:
 
   - name: Upload benchmark report
     if: steps.benchmark.outcome == 'success'
-    uses: flagos-ai/FlagOps/actions/post-benchmark-report@main
+    uses: flagos-ai/FlagCICD/actions/post-benchmark-report@main
     with:
       backend_url: 'http://10.1.4.167:30180'
       report_path: 'benchmark_metrics.json'
@@ -64,7 +64,7 @@ steps:
 ### With query options
 
 ```yaml
-  - uses: flagos-ai/FlagOps/actions/post-benchmark-report@main
+  - uses: flagos-ai/FlagCICD/actions/post-benchmark-report@main
     with:
       backend_url: 'http://10.1.4.167:30180'
       report_path: 'benchmark_metrics.json'
@@ -275,14 +275,14 @@ Example:
    # To preserve each step's response, use outputs instead of /tmp files:
    - name: Upload report A
      id: report_a
-     uses: flagos-ai/FlagOps/actions/post-benchmark-report@main
+     uses: flagos-ai/FlagCICD/actions/post-benchmark-report@main
      with:
        list_code: 'report-a'
        # ...
 
    - name: Upload report B
      id: report_b
-     uses: flagos-ai/FlagOps/actions/post-benchmark-report@main
+     uses: flagos-ai/FlagCICD/actions/post-benchmark-report@main
      with:
        list_code: 'report-b'
        # ...

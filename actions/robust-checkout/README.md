@@ -25,14 +25,14 @@ Designed for runners where `git fetch` can **hang** (not just fail) — a proble
 
 ```yaml
 steps:
-  - uses: flagos-ai/FlagOps/actions/robust-checkout@main
+  - uses: flagos-ai/FlagCICD/actions/robust-checkout@main
 ```
 
 ### With SSH deploy key (faster, more reliable on flaky networks)
 
 ```yaml
 steps:
-  - uses: flagos-ai/FlagOps/actions/robust-checkout@main
+  - uses: flagos-ai/FlagCICD/actions/robust-checkout@main
     with:
       ssh-key: ${{ secrets.DEPLOY_KEY }}
       fetch-depth: 0       # full history for git diffs
@@ -45,7 +45,7 @@ For PRs from forks, deploy keys don't have access. Pass an empty `ssh-key` to sk
 
 ```yaml
 steps:
-  - uses: flagos-ai/FlagOps/actions/robust-checkout@main
+  - uses: flagos-ai/FlagCICD/actions/robust-checkout@main
     with:
       ssh-key: ""          # explicitly empty — fork PRs have no deploy key access
       ref: ${{ github.event.pull_request.head.sha }}

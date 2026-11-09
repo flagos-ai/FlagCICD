@@ -19,7 +19,7 @@ Generalized from FlagGems' `ondemand-test` action for org-wide reuse. Contains o
 
 ```yaml
 steps:
-  - uses: flagos-ai/FlagOps/actions/run-ondemand-test@main
+  - uses: flagos-ai/FlagCICD/actions/run-ondemand-test@main
     with:
       test-command: |
         source .venv/bin/activate
@@ -35,7 +35,7 @@ steps:
 
 ```yaml
 steps:
-  - uses: flagos-ai/FlagOps/actions/run-ondemand-test@main
+  - uses: flagos-ai/FlagCICD/actions/run-ondemand-test@main
     with:
       test-command: |
         source .venv/bin/activate
@@ -76,7 +76,7 @@ The FlagGems-specific `op`, `backend`, `runner`, and `existing` inputs are repla
     github-token: ${{ secrets.GITHUB_TOKEN }}
 
 # After (org-wide)
-- uses: flagos-ai/FlagOps/actions/run-ondemand-test@main
+- uses: flagos-ai/FlagCICD/actions/run-ondemand-test@main
   with:
     test-command: |
       source .venv/bin/activate

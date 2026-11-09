@@ -19,10 +19,10 @@ steps:
   - uses: actions/checkout@v4
     continue-on-error: true
 
-  - uses: flagos-ai/FlagOps/actions/checkout-retry@main
+  - uses: flagos-ai/FlagCICD/actions/checkout-retry@main
 
   # From a containerized runner (must use fully-qualified ref):
-  - uses: flagos-ai/FlagOps/actions/checkout-retry@main
+  - uses: flagos-ai/FlagCICD/actions/checkout-retry@main
     with:
       ref: ${{ github.event.pull_request.head.sha }}
 ```
