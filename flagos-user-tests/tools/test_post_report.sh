@@ -77,7 +77,7 @@ echo ""
 # --- Step 3: Post list data ---
 echo "=== Step 3: Post list data ==="
 COMMIT_ID="$(git rev-parse HEAD 2>/dev/null || echo 'unknown')"
-REPO_NAME="flagos-ai/FlagOps"
+REPO_NAME="flagos-ai/FlagCICD"
 WORKFLOW_ID="local-test"
 RUN_ID="local-$$"
 

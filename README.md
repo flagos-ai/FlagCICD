@@ -1,11 +1,11 @@
-# FlagOS DevOps Central
+# FlagOS CICD Central
 
 This repository is the single source of truth for CI/CD logic across the **FlagOS AI** organization. It contains unified GitHub Actions (individual steps) and Reusable Workflows (entire pipelines) to ensure consistency, security, and speed across all our projects.
 
 ## 📁 Repository Structure
 
 ```text
-flagos-ai/FlagOps/
+flagos-ai/FlagCICD/
 ├── .github/
 │   └── workflows/                       # Reusable Workflows & CI tests
 │       ├── ci-shared.yml
@@ -70,7 +70,7 @@ on:
 
 jobs:
   run-standard-ci:
-    uses: flagos-ai/FlagOps/.github/workflows/ci-python.yml@main
+    uses: flagos-ai/FlagCICD/.github/workflows/ci-python.yml@main
     with:
       python-version: "3.11"
     secrets:
@@ -96,7 +96,7 @@ jobs:
 
       # Using a shared action from this repo
       - name: Setup Environment
-        uses: flagos-ai/FlagOps/actions/setup-poetry@main
+        uses: flagos-ai/FlagCICD/actions/setup-poetry@main
         with:
           install-dev-deps: "true"
 ```
@@ -161,8 +161,8 @@ Triggered by issue_comment and need to land on the PR branch?
 For production-critical repositories, avoid using `@main`. Instead, reference a specific version tag or commit SHA to prevent breaking changes:
 
 ```yaml
-uses: flagos-ai/FlagOps/actions/setup-project@v1.0.0
-uses: flagos-ai/FlagOps/actions/robust-checkout@v1.0.0
+uses: flagos-ai/FlagCICD/actions/setup-project@v1.0.0
+uses: flagos-ai/FlagCICD/actions/robust-checkout@v1.0.0
 ```
 
 ### 2. Contributions
@@ -178,7 +178,7 @@ Actions used inside Docker containers (e.g. `container:` jobs) cannot resolve lo
 
 ```yaml
 # ✅ works in container jobs
-- uses: flagos-ai/FlagOps/actions/checkout-pr@main
+- uses: flagos-ai/FlagCICD/actions/checkout-pr@main
 
 # ❌ fails in container jobs
 - uses: ./.github/actions/checkout-pr
